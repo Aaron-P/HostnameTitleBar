@@ -1,0 +1,38 @@
+{
+    "manifest_version": 2,
+    "name": "Hostname in Window Title",
+    "version": "1.0",
+    "description": "Adds the hostname of windows' active tab to the windows' title, e.g. for KeePass(X/XC).",
+    "developer": {
+        "name": "Aaron Papp",
+        "url": "https://github.com/Aaron-P/<extension repo>"
+    },
+    "icons": {
+        "24": "icon.svg",
+        "32": "icon.svg",
+        "48": "icon.svg",
+        "64": "icon.svg",
+        "96": "icon.svg"
+    },
+    "applications": {
+        "gecko": {
+            "strict_min_version": "56.0"
+        }
+    },
+    "permissions": [
+        "*://*/*",
+        "storage",
+        "tabs"
+    ],
+    "options_ui": {
+        "page": "options.html"
+    },
+    "background": {
+        "scripts": ["background.js"]
+    },
+    "content_scripts": [{
+        "matches": ["*://*/*"],
+        "js": ["content.js"],
+        "run_at": "document_end"
+    }]
+}
