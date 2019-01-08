@@ -1,0 +1,46 @@
+#options {
+    margin-left: 4px;
+    margin-right: 4px;
+}
+#inject-title {
+    margin-left: 0;
+}
+#preview {
+    color: #000000;
+    background-color: inherit;
+    opacity: 1;
+}
+.pull-right {
+    float: right;
+}
+.part-list {
+    padding: 0;
+    margin-left: 10px;
+}
+.part-list li {
+    display: inline;
+    padding-left: 2px;
+    padding-right: 2px;
+}
+dl.inline dd {
+    display: inline;
+    margin: 0;
+}
+dl.inline dd:after {
+    display: block;
+    content: '';
+}
+dl.inline dt {
+    margin-left: 10px;
+    display: inline-block;
+    min-width: 60px;
+}
+input[type="text"] {
+    width: 100%;
+}
+label {
+    font-weight: bold;
+}
+label ~ input[type="text"] {
+    margin-top: 4px;
+}

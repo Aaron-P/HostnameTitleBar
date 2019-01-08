@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "Hostname in Window Title",
-    "version": "1.2",
+    "version": "2.0",
     "description": "Adds the hostname of windows' active tab to the windows' title, e.g. for KeePass(X/XC).",
     "developer": {
         "name": "Aaron Papp",
@@ -25,6 +25,7 @@
         "tabs"
     ],
     "options_ui": {
+        "browser_style": true,
         "page": "options.html"
     },
     "background": {

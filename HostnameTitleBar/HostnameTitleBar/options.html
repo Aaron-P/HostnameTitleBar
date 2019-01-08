@@ -3,15 +3,48 @@
     <head>
         <meta charset="utf-8" />
         <title>Options</title>
+        <link rel="stylesheet" href="options.css">
     </head>
     <body>
         <form id="options" action="#">
             <p>
-                <input type="checkbox" id="inject-title" />
-                <label for="inject-title">Inject a title into pages without one (workaround for bug <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1387425">1387425</a>)</label>
+                <div class="browser-style">
+                    <input type="checkbox" id="inject-title" />
+                    <label for="inject-title">Inject a title into pages that don't have one (workaround for bug <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1387425">1387425</a>)</label>
+                    <div class="pull-right">
+                        <button class="browser-style" id="reset">reset</button>
+                    </div>
+                </div>
+                <div class="browser-style">
+                    <label for="template">Template</label>
+                    <input type="text" id="template">
+                </div>
+                <div class="browser-style">
+                    <label>Preview</label>
+                    <input type="text" id="preview" disabled>
+                </div>
+                <label>Template Parts (hover to highlight example)</label>
+                <dl class="inline">
+                    <dt>Page Title:</dt><dd><span id="part-title">Example Domain</span></dd>
+                    <dt>Page Url:</dt><dd><span id="part-href"><span id="part-origin"><span id="part-protocol">https:</span>//<span id="part-host"><span id="part-hostname">www.example.com</span>:<span id="part-port">8080</span></span></span><span id="part-pathname">/path</span><span id="part-search">?search=1</span><span id="part-hash">#hash</span></span></dd>
+                </dl>
+                <ul class="part-list">
+                    <li data-for="part-title"   >{title}</li>
+                    <li data-for="part-hash"    >{hash}</li>
+                    <li data-for="part-host"    >{host}</li>
+                    <li data-for="part-hostname">{hostname}</li>
+                    <li data-for="part-href"    >{href}</li>
+                    <li data-for="part-origin"  >{origin}</li>
+                    <li data-for="part-pathname">{pathname}</li>
+                    <li data-for="part-port"    >{port}</li>
+                    <li data-for="part-protocol">{protocol}</li>
+                    <li data-for="part-search"  >{search}</li>
+                </ul>
                 <br />
-                <input type="checkbox" id="prepend-title" />
-                <label for="prepend-title">Prepend the tab title before the hostname (workaround for bug <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1396010">1396010</a>)</label>
+                <label>Notes</label>
+                <ul>
+                    <li>Firefox extensions can only prepended text onto the existing window title. The "{title} - Mozilla Firefox" at the end cannot be removed (see bug <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1396010">1396010</a>).</li>
+                </ul>
             </p>
         </form>
         <script type="text/javascript" src="options.js"></script>

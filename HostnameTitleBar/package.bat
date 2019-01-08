@@ -9,5 +9,6 @@ rmdir /S /Q ..\Firefox
 	content.js^
 	icon.svg^
 	manifest.json^
+	options.css^
 	options.html^
 	options.js
