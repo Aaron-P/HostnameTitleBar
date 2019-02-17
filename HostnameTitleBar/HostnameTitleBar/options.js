@@ -3,19 +3,7 @@
 
     const defaultTemplate = "{title} - {hostname}"
     const exampleTitle = "Example Domain";
-    const exampleUrl = new URL("https://www.example.com:8080/path?search=1#hash");
-    const exampleValues = {
-        title: exampleTitle,
-        hash: exampleUrl.hash,
-        host: exampleUrl.host,
-        hostname: exampleUrl.hostname,
-        href: exampleUrl.href,
-        origin: exampleUrl.origin,
-        pathname: exampleUrl.pathname,
-        port: exampleUrl.port,
-        protocol: exampleUrl.protocol,
-        search: exampleUrl.search
-    }
+    const exampleUrl = new URL("https://www.example.com:443/path?search=1#hash");
 
     function render(template, values) {
         return template.replace(/{([a-z]+?)}/ig, (match, key) => {
@@ -24,6 +12,26 @@
     }
 
     function preview(template) {
+        let protocol = exampleUrl.protocol.replace(':', '');
+        let port = '';
+
+        if (exampleUrl.port != '') {
+            port = ':' + exampleUrl.port;
+        }
+
+        let exampleValues = {
+            title: exampleTitle,
+            hash: exampleUrl.hash,
+            host: exampleUrl.host,
+            hostname: exampleUrl.hostname,
+            href: exampleUrl.href,
+            origin: exampleUrl.origin,
+            pathname: exampleUrl.pathname,
+            port: port,
+            protocol: protocol,
+            search: exampleUrl.search
+        }
+
         document.getElementById("preview").value = render(template + (template !== "" ? " - " : "") + "{title} - Mozilla Firefox", exampleValues);
     }
 

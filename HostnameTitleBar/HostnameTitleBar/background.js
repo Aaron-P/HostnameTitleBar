@@ -5,13 +5,20 @@
 
     function render(template, values) {
         return template.replace(/{([a-z]+?)}/ig, (match, key) => {
-            return values[key] || match;
+            return values[key];
         });
     }
 
     async function setTitle(windowId, tab) {
         try {
             let url = new URL(tab.url);
+            let protocol = url.protocol.replace(':', '');
+            let port = '';
+
+            if (url.port != '') {
+                port = ':' + url.port;
+            }
+
             let values = {
                 title: tab.title,
                 hash: url.hash,
@@ -20,15 +27,14 @@
                 href: url.href,
                 origin: url.origin,
                 pathname: url.pathname,
-                port: url.port,
-                protocol: url.protocol,
+                port: port,
+                protocol: protocol,
                 search: url.search
             }
-
             //A suffix would be nicer but that isn't currently supported.
             let results = await browser.storage.local.get({ template: defaultTemplate });
             let update = { titlePreface: " " }; //For some reason titlePreface = "", null, or undefined doesn't clear it, but spaces seem to get trimmed so this works.
-            if (url && results.template !== "" && ["http:", "https:"].indexOf(url.protocol) !== -1) { //Other protocols?
+            if (url && results.template !== "" && ["http", "https"].indexOf(protocol) !== -1) { //Other protocols?
                 update.titlePreface = render(results.template, values) + " - ";
             }
             await browser.windows.update(windowId, update);
