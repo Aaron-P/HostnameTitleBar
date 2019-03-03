@@ -20,8 +20,9 @@
                 href: url.href,
                 origin: url.origin,
                 pathname: url.pathname,
-                port: url.port,
-                protocol: url.protocol,
+                port: url.port ? ":" + url.port : "",
+                portnumber: url.port,
+                protocol: url.protocol.replace(":", ""),
                 search: url.search
             }
 

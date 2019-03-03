@@ -12,8 +12,9 @@
         href: exampleUrl.href,
         origin: exampleUrl.origin,
         pathname: exampleUrl.pathname,
-        port: exampleUrl.port,
-        protocol: exampleUrl.protocol,
+        port: exampleUrl.port ? ":" + exampleUrl.port : "",
+        portnumber: exampleUrl.port,
+        protocol: exampleUrl.protocol.replace(":", ""),
         search: exampleUrl.search
     }
 
