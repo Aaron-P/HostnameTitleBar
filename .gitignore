@@ -238,7 +238,7 @@ pip-log.txt
 *.nupkg
 *.pem
 **/.vs/*
-/HostnameTitleBar/7za.exe
-/HostnameTitleBar/Firefox/*
-/HostnameTitleBar/HostnameTitleBar/*.bak
-/HostnameTitleBar/HostnameTitleBar/TODO.txt
+*/7za.exe
+*/Firefox/*
+*.bak
+**/TODO.txt

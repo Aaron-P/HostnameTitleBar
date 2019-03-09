@@ -29,11 +29,19 @@
         "page": "options.html"
     },
     "background": {
-        "scripts": ["background.js"]
+        "scripts": [
+            "background.js"
+        ]
     },
-    "content_scripts": [{
-        "matches": ["*://*/*"],
-        "js": ["content.js"],
-        "run_at": "document_end"
-    }]
+    "content_scripts": [
+        {
+            "matches": [
+                "*://*/*"
+            ],
+            "js": [
+                "content.js"
+            ],
+            "run_at": "document_end"
+        }
+    ]
 }
