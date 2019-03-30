@@ -5,7 +5,7 @@
 
     function render(template, values) {
         return template.replace(/{([a-z]+?)}/ig, (match, key) => {
-            return values[key] || match;
+            return values.hasOwnProperty(key) ? values[key] : match;
         });
     }
 
