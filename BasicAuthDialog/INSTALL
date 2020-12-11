@@ -1,3 +1,0 @@
-Only tested on Windows, I don't know if it will work on other platforms.
-
-Copy userChrome.css, userChrome.js, and userChrome.xml to %appdata%\Mozilla\Firefox\Profiles\<your profile folder>\chrome
